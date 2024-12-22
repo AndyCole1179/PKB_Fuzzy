@@ -33,7 +33,6 @@ promotion_eligibility['high'] = fuzz.trapmf(promotion_eligibility.universe, [0.7
 
 # Input membership categories
 performance_levels = ['low', 'medium', 'high']
-years_levels = ['few', 'moderate', 'many']
 projects_levels = ['few', 'average', 'many']
 satisfaction_levels = ['dissatisfied', 'neutral', 'satisfied']
 
