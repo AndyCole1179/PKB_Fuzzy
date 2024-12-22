@@ -9,4 +9,3 @@ Employee_ID,Department,Job_Title,Years_At_Company,Performance_Score,Work_Hours_P
 8,HR,Consultant,7,2,42,10,3.6,0.2041666666666667
 9,Marketing,Coordinator,3,4,37,20,3.85,0.6
 10,Finance,Specialist,8,3,48,27,4.05,0.6000000000000001
-11,IT,Specialist,5,5,33,32,1.0,0.21253968253968256
