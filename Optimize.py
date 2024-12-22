@@ -63,7 +63,7 @@ for performance_level in performance_levels:
 promotion_ctrl = ctrl.ControlSystem(rules)
 promotion_sim = ctrl.ControlSystemSimulation(promotion_ctrl)
 
-promotion_scores = []  
+promotion_scores = [] 
 for _, row in data.iterrows():
     try:
         promotion_sim.input['Performance_Score'] = row['Performance_Score']
