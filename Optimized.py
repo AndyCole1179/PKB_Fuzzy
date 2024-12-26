@@ -3,7 +3,7 @@ import pandas as pd
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
 
-data = pd.read_csv('Extended_Employee_Performance_and_Productivity_Data.csv', delimiter=';')
+data = pd.read_csv('Input_Data.csv', delimiter=';')
 
 performance = ctrl.Antecedent(np.arange(1, 6, 1), 'Performance_Score')
 projects = ctrl.Antecedent(np.arange(0, 51, 1), 'Projects_Handled')
@@ -89,5 +89,5 @@ for _, row in data.iterrows():
 data['Promotion_Eligibility'] = promotion_scores
 data['Promotion_Level'] = promotion_level
 
-data.to_csv('employee_promotion_eligibility.csv', index=False)
-print("Updated dataset saved as 'employee_promotion_eligibility.csv'.")
+data.to_csv('Output_Data.csv', index=False)
+print("Updated dataset saved as 'Output_Data.csv'.")
