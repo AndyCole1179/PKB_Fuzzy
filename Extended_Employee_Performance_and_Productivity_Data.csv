@@ -1,11 +1,11 @@
 Employee_ID;Department;Job_Title;Performance_Score;Projects_Handled;Employee_Satisfaction_Score
-1;IT;Specialist;5;33;2.63
-2;Finance;Analyst;4;40;3.75
-3;HR;Manager;3;45;4.20
+1;IT;Specialist;5;33;4.63
+2;Finance;Analyst;4;40;4.75
+3;HR;Manager;3;45;4.2
 4;IT;Developer;5;35;2.85
-5;Marketing;Specialist;4;30;3.50
-6;Finance;Executive;3;50;4.10
+5;Marketing;Specialist;4;30;3.5
+6;Finance;Executive;5;50;4.9
 7;IT;Technician;5;38;2.95
-8;HR;Consultant;2;42;3.60
+8;HR;Consultant;2;42;1.8
 9;Marketing;Coordinator;4;37;3.85
 10;Finance;Specialist;3;48;4.05

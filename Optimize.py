@@ -8,7 +8,6 @@ data = pd.read_csv('Extended_Employee_Performance_and_Productivity_Data.csv', de
 performance = ctrl.Antecedent(np.arange(1, 6, 1), 'Performance_Score')
 projects = ctrl.Antecedent(np.arange(0, 51, 1), 'Projects_Handled')
 satisfaction = ctrl.Antecedent(np.arange(1, 6, 0.1), 'Employee_Satisfaction_Score')
-promotions = ctrl.Antecedent(np.arange(0, 6, 1), 'Promotions')
 
 promotion_eligibility = ctrl.Consequent(np.arange(0, 1.1, 0.1), 'Promotion_Eligibility')
 
@@ -63,6 +62,7 @@ promotion_ctrl = ctrl.ControlSystem(rules)
 promotion_sim = ctrl.ControlSystemSimulation(promotion_ctrl)
 
 promotion_scores = [] 
+promotion_level = []
 for _, row in data.iterrows():
     try:
         promotion_sim.input['Performance_Score'] = row['Performance_Score']
@@ -70,12 +70,24 @@ for _, row in data.iterrows():
         promotion_sim.input['Employee_Satisfaction_Score'] = row['Employee_Satisfaction_Score']
 
         promotion_sim.compute()
-        promotion_scores.append(promotion_sim.output['Promotion_Eligibility'])
+        score = round(promotion_sim.output['Promotion_Eligibility'], 2)
+        promotion_scores.append(score)
+
+        if 0 <= score <= 0.3:
+            promotion_level.append('low')
+        elif 0.3 < score <= 0.7:
+            promotion_level.append('medium')
+        elif 0.7 < score <= 1:
+            promotion_level.append('high')
+        else:
+            promotion_level.append(None)
     except Exception as e:
         print(f"Error processing row {_}: {e}")
         promotion_scores.append(None)
+        promotion_level.append(None)
 
 data['Promotion_Eligibility'] = promotion_scores
+data['Promotion_Level'] = promotion_level
 
 data.to_csv('employee_promotion_eligibility.csv', index=False)
 print("Updated dataset saved as 'employee_promotion_eligibility.csv'.")
