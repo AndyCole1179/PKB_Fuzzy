@@ -5,24 +5,28 @@ from skfuzzy import control as ctrl
 
 data = pd.read_csv('Input_Data.csv', delimiter=';')
 
-performance = ctrl.Antecedent(np.arange(1, 6, 1), 'Performance_Score')
+performance = ctrl.Antecedent(np.arange(1, 11, 1), 'Performance_Score')
 projects = ctrl.Antecedent(np.arange(0, 51, 1), 'Projects_Handled')
-satisfaction = ctrl.Antecedent(np.arange(1, 6, 0.1), 'Employee_Satisfaction_Score')
+satisfaction = ctrl.Antecedent(np.arange(1, 11, 1), 'Employee_Satisfaction_Score')
 
 promotion_eligibility = ctrl.Consequent(np.arange(0, 1.1, 0.1), 'Promotion_Eligibility')
 
-performance['low'] = fuzz.trapmf(performance.universe, [1, 1, 2, 3])
-performance['medium'] = fuzz.trapmf(performance.universe, [2, 3, 4, 5])
-performance['high'] = fuzz.trapmf(performance.universe, [4, 5, 5, 5])
+# Fungsi Keanggotaan untuk Performance_Score (skala 1-10)
+performance['low'] = fuzz.trapmf(performance.universe, [1, 1, 3, 5])
+performance['medium'] = fuzz.trapmf(performance.universe, [3, 5, 6, 8])
+performance['high'] = fuzz.trapmf(performance.universe, [6, 8, 10, 10])
 
+# Fungsi Keanggotaan untuk Projects_Handled (skala 0-50)
 projects['few'] = fuzz.trapmf(projects.universe, [0, 0, 10, 20])
 projects['average'] = fuzz.trapmf(projects.universe, [10, 20, 30, 40])
 projects['many'] = fuzz.trapmf(projects.universe, [30, 40, 50, 50])
 
-satisfaction['dissatisfied'] = fuzz.trapmf(satisfaction.universe, [1, 1, 2, 3])
-satisfaction['neutral'] = fuzz.trapmf(satisfaction.universe, [2, 3, 4, 5])
-satisfaction['satisfied'] = fuzz.trapmf(satisfaction.universe, [4, 5, 5, 5])
+# Fungsi Keanggotaan untuk Employee_Satisfaction_Score (skala 1-10)
+satisfaction['dissatisfied'] = fuzz.trapmf(satisfaction.universe, [1, 1, 3, 5])
+satisfaction['neutral'] = fuzz.trapmf(satisfaction.universe, [3, 5, 6, 8])
+satisfaction['satisfied'] = fuzz.trapmf(satisfaction.universe, [6, 8, 10, 10])
 
+# Fungsi Keanggotaan untuk Promotion_Eligibility (skala 0-1)
 promotion_eligibility['low'] = fuzz.trapmf(promotion_eligibility.universe, [0, 0, 0.3, 0.5])
 promotion_eligibility['medium'] = fuzz.trapmf(promotion_eligibility.universe, [0.3, 0.5, 0.7, 0.9])
 promotion_eligibility['high'] = fuzz.trapmf(promotion_eligibility.universe, [0.7, 0.9, 1, 1])
