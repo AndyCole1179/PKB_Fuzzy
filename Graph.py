@@ -3,16 +3,16 @@ import matplotlib.pyplot as plt
 import skfuzzy as fuzz
 
 # Define universes
-performance_universe = np.linspace(0, 6, 100)
+performance_universe = np.linspace(0, 11, 100)
 projects_universe = np.linspace(0, 50, 100)
-satisfaction_universe = np.linspace(0, 6, 100)
+satisfaction_universe = np.linspace(0, 11, 100)
 promotion_universe = np.linspace(0, 1, 100)
 
 # Define membership functions for each category
 # Performance
-performance_low = fuzz.trapmf(performance_universe, [1, 1, 2, 3])
-performance_medium = fuzz.trapmf(performance_universe, [2, 3, 4, 5])
-performance_high = fuzz.trapmf(performance_universe, [4, 5, 5, 5])
+performance_low = fuzz.trapmf(performance_universe, [1, 1, 3, 5])
+performance_medium = fuzz.trapmf(performance_universe, [3, 5, 6, 8])
+performance_high = fuzz.trapmf(performance_universe, [6, 8, 10, 10])
 
 # Projects
 projects_few = fuzz.trapmf(projects_universe, [0, 0, 10, 20])
@@ -20,14 +20,16 @@ projects_average = fuzz.trapmf(projects_universe, [10, 20, 30, 40])
 projects_many = fuzz.trapmf(projects_universe, [30, 40, 50, 50])
 
 # Satisfaction
-satisfaction_dissatisfied = fuzz.trapmf(satisfaction_universe, [1, 1, 2, 3])
-satisfaction_neutral = fuzz.trapmf(satisfaction_universe, [2, 3, 4, 5])
-satisfaction_satisfied = fuzz.trapmf(satisfaction_universe, [4, 5, 5, 5])
+satisfaction_dissatisfied = fuzz.trapmf(satisfaction_universe, [1, 1, 3, 5])
+satisfaction_neutral = fuzz.trapmf(satisfaction_universe, [3, 5, 6, 8])
+satisfaction_satisfied = fuzz.trapmf(satisfaction_universe, [6, 8, 10, 10])
 
 # Promotion Eligibility
 promotion_low = fuzz.trapmf(promotion_universe, [0, 0, 0.3, 0.5])
 promotion_medium = fuzz.trapmf(promotion_universe, [0.3, 0.5, 0.7, 0.9])
 promotion_high = fuzz.trapmf(promotion_universe, [0.7, 0.9, 1, 1])
+
+
 
 # Plot all membership functions
 fig, axs = plt.subplots(4, 1, figsize=(10, 20))
