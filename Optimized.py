@@ -28,7 +28,7 @@ satisfaction['satisfied'] = fuzz.trapmf(satisfaction.universe, [6, 8, 10, 10])
 
 # Fungsi Keanggotaan untuk Promotion_Eligibility (skala 0-1)
 promotion_eligibility['low'] = fuzz.trapmf(promotion_eligibility.universe, [0, 0, 0.3, 0.5])
-promotion_eligibility['medium'] = fuzz.trapmf(promotion_eligibility.universe, [0.3, 0.5, 0.7, 0.9])
+promotion_eligibility['medium'] = fuzz.trapmf(promotion_eligibility.universe, [0.3, 0.5, 0.7, 0.8])
 promotion_eligibility['high'] = fuzz.trapmf(promotion_eligibility.universe, [0.7, 0.9, 1, 1])
 
 performance_levels = ['low', 'medium', 'high']

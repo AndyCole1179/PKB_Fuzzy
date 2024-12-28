@@ -26,7 +26,7 @@ satisfaction_satisfied = fuzz.trapmf(satisfaction_universe, [6, 8, 10, 10])
 
 # Promotion Eligibility
 promotion_low = fuzz.trapmf(promotion_universe, [0, 0, 0.3, 0.5])
-promotion_medium = fuzz.trapmf(promotion_universe, [0.3, 0.5, 0.7, 0.9])
+promotion_medium = fuzz.trapmf(promotion_universe, [0.3, 0.5, 0.7, 0.8])
 promotion_high = fuzz.trapmf(promotion_universe, [0.7, 0.9, 1, 1])
 
 
