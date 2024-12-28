@@ -74,6 +74,8 @@ for _, row in data.iterrows():
         promotion_sim.input['Employee_Satisfaction_Score'] = row['Employee_Satisfaction_Score']
 
         promotion_sim.compute()
+
+        
         score = round(promotion_sim.output['Promotion_Eligibility'], 2)
         promotion_scores.append(score)
 
